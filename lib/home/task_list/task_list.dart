@@ -118,8 +118,8 @@ class _TaskListState extends State<TaskList> {
       Task task = Task(
           title: title,
           description: description,
-          date: selectedDate.microsecondsSinceEpoch);
-      addTaskToFire(task).timeout(Duration(microseconds: 500),onTimeout:(){
+          date: selectedDate.millisecondsSinceEpoch);
+      addTaskToFire(task).timeout(Duration(milliseconds: 500),onTimeout:(){
         print('finished');
         Navigator.pop(context);
         setState(() {

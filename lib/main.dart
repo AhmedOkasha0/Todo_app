@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo/home/edit_task/edit_task.dart';
 import 'package:todo/home/home_screen.dart';
 import 'package:todo/providers/settings_provider.dart';
 import 'package:todo/theme_app.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
+        EditTask.routeName:(context)=> EditTask(),
       },
       theme: ThemeScreen.lightTheme,
       darkTheme: ThemeScreen.DarkTheme,

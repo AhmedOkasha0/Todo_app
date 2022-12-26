@@ -63,7 +63,7 @@ class _MenuState extends State<Menu> {
     
     
     taskList=taskList.where((task){
-      DateTime dateTime=DateTime.fromMicrosecondsSinceEpoch(task.date);
+      DateTime dateTime=DateTime.fromMillisecondsSinceEpoch(task.date);
       if(dateTime.year == selectedDate.year &&
       dateTime.month == selectedDate.month&&
       dateTime.day == selectedDate.day){
@@ -73,8 +73,8 @@ class _MenuState extends State<Menu> {
     }).toList();
 
     taskList.sort((Task task1, Task task2){
-      DateTime dateTime1=DateTime.fromMicrosecondsSinceEpoch(task1.date);
-      DateTime dateTime2=DateTime.fromMicrosecondsSinceEpoch(task2.date);
+      DateTime dateTime1=DateTime.fromMillisecondsSinceEpoch(task1.date);
+      DateTime dateTime2=DateTime.fromMillisecondsSinceEpoch(task2.date);
       return dateTime1.compareTo(dateTime2);
 
 

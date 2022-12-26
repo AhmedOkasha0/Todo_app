@@ -7,13 +7,23 @@ CollectionReference<Task> getTaskCollection() {
       toFirestore: (task, option) => task.toJson());
 }
 
-Future <void> addTaskToFire(Task task) {
+Future<void> addTaskToFire(Task task) {
   var collection = getTaskCollection();
-  var docReference= collection.doc();
-  task.id=docReference.id;
- return docReference.set(task);
+  var docReference = collection.doc();
+  task.id = docReference.id;
+  return docReference.set(task);
 }
-  Future<void> deletTaskFromFireStore(Task task){
- return getTaskCollection().doc(task.id).delete();
 
+Future<void> deletTaskFromFireStore(Task task) {
+  return getTaskCollection().doc(task.id).delete();
 }
+
+Future<void> makeIsdoneInFirebase(Task task) {
+  return getTaskCollection().doc(task.id).update({
+    'isDone': !task.isDone,
+  });
+}
+Future<void>editTaskInFirebase(Task task){
+  return getTaskCollection().doc(task.id).update(task.toJson());
+}
+
