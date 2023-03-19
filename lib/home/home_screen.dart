@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todo/theme_app.dart';
+import 'package:todo/home/menu/menu.dart';
+import 'package:todo/home/task_list/task_list.dart';
+import 'package:todo/settings/settings.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'homeScreen';
@@ -59,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: BorderRadius.circular(30),
         ),
         onPressed: () {
-
+          showButtomSheet();
         },
         child: Icon(
           Icons.add,
@@ -67,8 +69,16 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      body: tabs[selectedIndex],
     );
   }
 
-
+  List<Widget> tabs = [Settings(), Menu()];
+  void showButtomSheet() {
+    showModalBottomSheet(
+        context: context,
+        builder: (buildContext) {
+          return TaskList();
+        });
+  }
 }
